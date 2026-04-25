@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://qf765ixkffwo"]
+
+[ext_resource type="PackedScene" uid="uid://buh7diarn0uee" path="res://wall.tscn" id="2_ho7oe"]
+[ext_resource type="Script" uid="uid://coyvttnuw43i3" path="res://spring_arm_camera.gd" id="2_springarm"]
+[ext_resource type="PackedScene" uid="uid://da5xhdv15hpe1" path="res://goal.tscn" id="3_nmhtg"]
+[ext_resource type="Script" uid="uid://c3qwexh3ebotj" path="res://ball.gd" id="5_nmhtg"]
+[ext_resource type="PackedScene" uid="uid://bx8j7svrtatrd" path="res://player.tscn" id="5_tq727"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_p20re"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ho7oe"]
+albedo_color = Color(0.03306879, 0.03306879, 0.03306879, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_p20re"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_m2sqd"]
+radius = 0.2
+height = 0.2
+
+[node name="Node3D" type="Node3D" unique_id=1420308805]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=21674441]
+transform = Transform3D(1, 0, 0, 0, 0.2338526, 0.9722721, 0, -0.9722721, 0.2338526, 0, 0, 0)
+spring_length = 8.0
+script = ExtResource("2_springarm")
+metadata/MAX_ZOOM = 10
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=1905313756]
+
+[node name="OmniLight3D" type="SpotLight3D" parent="." unique_id=745702398]
+transform = Transform3D(1.010659e-07, -0.6560591, -0.75470954, 5.960465e-08, -0.75470954, 0.6560591, -1, -1.112894e-07, -3.7171226e-08, -9.051727, 2.9999998, 5.9604645e-08)
+light_color = Color(0, 1, 0.0666666, 1)
+shadow_enabled = true
+spot_range = 10.0
+spot_attenuation = -1.54
+
+[node name="OmniLight3D2" type="SpotLight3D" parent="." unique_id=1079391471]
+transform = Transform3D(-1.8627818e-08, -0.65753317, 0.75342566, -2.9802326e-08, 0.75342566, 0.6575331, -1, -1.020543e-08, -3.363069e-08, 8.948275, 2.9999998, 5.9604645e-08)
+light_color = Color(1, 0, 0, 1)
+shadow_enabled = true
+spot_range = 10.0
+spot_attenuation = -1.56
+
+[node name="Stage" type="MeshInstance3D" parent="." unique_id=1198304421]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -0.051725388, 0, 0)
+mesh = SubResource("PlaneMesh_p20re")
+surface_material_override/0 = SubResource("StandardMaterial3D_ho7oe")
+
+[node name="Wall1" parent="Stage" unique_id=1289877848 instance=ExtResource("2_ho7oe")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 2, -1, 0, 0)
+
+[node name="Wall2" parent="Stage" unique_id=632831409 instance=ExtResource("2_ho7oe")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 2, 1, 0, 0)
+
+[node name="Goal1" parent="Stage" unique_id=1443720491 node_paths=PackedStringArray("player") instance=ExtResource("3_nmhtg")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 0, -1)
+player = NodePath("../../Player1")
+
+[node name="Goal2" parent="Stage" unique_id=2038557962 node_paths=PackedStringArray("player") instance=ExtResource("3_nmhtg")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 0, 1)
+player = NodePath("../../Player2")
+
+[node name="Ball" type="RigidBody3D" parent="Stage" unique_id=1828858878]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.008620898, 0, 0)
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = ExtResource("5_nmhtg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stage/Ball" unique_id=763430446]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("SphereShape3D_p20re")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Stage/Ball" unique_id=1080781446]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+mesh = SubResource("SphereMesh_m2sqd")
+
+[node name="SpotLightTail" type="SpotLight3D" parent="Stage/Ball" unique_id=736472993]
+transform = Transform3D(1, 0, 0, 0, 0.8803118, 0.4743956, 0, -0.4743956, 0.8803118, 0, 0.07367937, 0)
+light_energy = 8.547
+shadow_enabled = true
+spot_range = 3.234
+spot_attenuation = -3.1
+spot_angle = 50.78
+spot_angle_attenuation = 1.1095688
+
+[node name="Player1" parent="." unique_id=1036682197 groups=["players"] instance=ExtResource("5_tq727")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+color = Color(0, 0.23529412, 0.6039216, 1)
+
+[node name="Player2" parent="." unique_id=149454558 groups=["players"] instance=ExtResource("5_tq727")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+color = Color(1, 0.98333335, 0, 1)

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d4j7xe1qi3tfu"]
+
+[ext_resource type="Script" uid="uid://bf4fxhl4namix" path="res://paddle.gd" id="1_0sbc1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l7g0s"]
+size = Vector3(2, 1, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ut3sq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0sbc1"]
+
+[node name="Paddle" type="RigidBody3D" unique_id=1216681343]
+script = ExtResource("1_0sbc1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=474692295]
+shape = SubResource("BoxShape3D_l7g0s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=452828706]
+transform = Transform3D(2, 0, 0, 0, 0.2, 0, 0, 0, 0.5, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_ut3sq")
+mesh = SubResource("BoxMesh_0sbc1")

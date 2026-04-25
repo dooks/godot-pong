@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://da5xhdv15hpe1"]
+
+[ext_resource type="Script" uid="uid://um808h8uy4i7" path="res://goal.gd" id="1_6k3qi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0qle8"]
+
+[node name="Goal" type="Area3D" unique_id=1443720491 groups=["goals"]]
+script = ExtResource("1_6k3qi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=783800601]
+shape = SubResource("BoxShape3D_0qle8")

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bx8j7svrtatrd"]
+
+[ext_resource type="Script" uid="uid://b3l71gsiloi54" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://d4j7xe1qi3tfu" path="res://paddle.tscn" id="2_onrkg"]
+
+[node name="Player" type="Node3D" unique_id=1904565669]
+script = ExtResource("1_4flbx")
+
+[node name="Paddle" parent="." unique_id=1065407550 node_paths=PackedStringArray("player") instance=ExtResource("2_onrkg")]
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+player = NodePath("..")
