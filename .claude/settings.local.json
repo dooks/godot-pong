@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(\\\\.txt\")",
+      "WebFetch(domain:docs.godotengine.org)",
+      "WebSearch",
+      "WebFetch(domain:www.oreilly.com)",
+      "WebFetch(domain:christinec-dev.medium.com)"
+    ]
+  }
+}
