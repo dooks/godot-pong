@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://da5xhdv15hpe1" path="res://goal.tscn" id="3_nmhtg"]
 [ext_resource type="Script" uid="uid://c3qwexh3ebotj" path="res://ball.gd" id="5_nmhtg"]
 [ext_resource type="PackedScene" uid="uid://bx8j7svrtatrd" path="res://player.tscn" id="5_tq727"]
+[ext_resource type="PackedScene" uid="uid://xhrbej3ty1jw" path="res://hud.tscn" id="6_tq727"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_p20re"]
 
@@ -93,3 +94,8 @@ color = Color(0, 0.23529412, 0.6039216, 1)
 [node name="Player2" parent="." unique_id=149454558 groups=["players"] instance=ExtResource("5_tq727")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.1404495)
 color = Color(1, 0.98333335, 0, 1)
+
+[node name="HUD" parent="." unique_id=1812839319 instance=ExtResource("6_tq727")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=144048916]
+transform = Transform3D(-0.08966857, -0.99306846, -0.07599071, 0.7576061, -0.117537424, 0.64204204, -0.64652354, 3.0625937e-09, 0.7628942, -6.8088593, 4.8441315, -0.91080666)

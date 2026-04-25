@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://xhrbej3ty1jw"]
+
+[ext_resource type="Script" uid="uid://umclb4yi6073" path="res://hud.gd" id="1_37p78"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1812839319]
+script = ExtResource("1_37p78")
+
+[node name="Score" type="Label" parent="." unique_id=922309616]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -575.0
+offset_right = 575.0
+offset_bottom = 99.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Directions" type="Label" parent="." unique_id=2006549214]
+offset_left = 8.5
+offset_right = 422.5
+offset_bottom = 100.0
+size_flags_horizontal = 4
+text = "Use the Left/Right arrow keys to control both paddles
+Use the Up/Down arrow keys to adjust the camera
+Press 'R' to reset the game"
