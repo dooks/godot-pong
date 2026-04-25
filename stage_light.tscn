@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://x8mcafx4l8ft"]
+
+[ext_resource type="Script" path="res://stage_light.gd" id="1_2vusi"]
+
+[node name="StageLight" type="SpotLight3D" unique_id=1245199255]
+light_color = Color(0, 1, 0.0666666, 1)
+shadow_enabled = true
+script = ExtResource("1_2vusi")
