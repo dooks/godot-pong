@@ -3,13 +3,7 @@ class_name Player
 extends Node
 
 signal color_changed(new_color: Color)
-signal score_changed(new_score)
 signal move_changed(amt: float)
-
-@export var score := 0:
-	set(value):
-		score = value
-		score_changed.emit(score)
 
 @export var color := Color(1, 1, 1, 1):
 	set(value):

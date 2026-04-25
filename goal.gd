@@ -10,11 +10,10 @@ func _update_size() -> void:
 
 func _on_body_entered(node: Node) -> void:
 	if node is Ball:
-		GameState.on_score_goal.emit(player)
+		GameState.score_goal.emit(player)
 
 func _ready() -> void:
 	if not Engine.is_editor_hint():
 		assert(player != null, "%s: player must be assigned." % name)
-		body_entered.connect(_on_body_entered)
 
 	body_entered.connect(_on_body_entered)

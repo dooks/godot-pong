@@ -26,7 +26,7 @@ func _ready() -> void:
 	max_contacts_reported = 1
 	body_entered.connect(_on_body_entered)
 
-func _on_body_entered(body: Node) -> void:
+func _on_body_entered(_body: Node) -> void:
 	linear_velocity = (linear_velocity * 1.05).limit_length(max_speed)
 
 func _physics_process(delta: float) -> void:

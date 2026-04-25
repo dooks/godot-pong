@@ -20,9 +20,11 @@ height = 0.2
 [node name="Node3D" type="Node3D" unique_id=1420308805]
 
 [node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=21674441]
-transform = Transform3D(1, 0, 0, 0, 0.2338526, 0.9722721, 0, -0.9722721, 0.2338526, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.2338526, 0.9722721, 0, -0.9722721, 0.2338526, 0, 0, 2.138495)
 spring_length = 8.0
 script = ExtResource("2_springarm")
+min_zoom = 5.0
+tilt_at_min_zoom = 45.0
 metadata/MAX_ZOOM = 10
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=1905313756]
@@ -85,9 +87,9 @@ spot_angle = 50.78
 spot_angle_attenuation = 1.1095688
 
 [node name="Player1" parent="." unique_id=1036682197 groups=["players"] instance=ExtResource("5_tq727")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.0054083)
 color = Color(0, 0.23529412, 0.6039216, 1)
 
 [node name="Player2" parent="." unique_id=149454558 groups=["players"] instance=ExtResource("5_tq727")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.1404495)
 color = Color(1, 0.98333335, 0, 1)

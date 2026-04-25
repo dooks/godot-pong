@@ -6,7 +6,7 @@ class PlayerState:
 var players: Dictionary[Player, PlayerState]
 var ball: Ball
 
-signal on_score_goal(player: Player)
+signal score_goal(player: Player)
 func _score_goal(player: Player) -> void:
 	if ball:
 		ball._reset()
@@ -20,4 +20,4 @@ func _ready() -> void:
 	for node in get_tree().get_nodes_in_group("players"):
 		players[node as Player] = PlayerState.new()
 
-	on_score_goal.connect(_score_goal)
+	score_goal.connect(_score_goal)
